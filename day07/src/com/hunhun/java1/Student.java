@@ -29,9 +29,9 @@ public class Student extends Person{
 	
 	public void setAge(int age) {
 		this.age = age;
-	}
-	
-	public void eat() {
-		System.out.println("eating");
 	}*/
+	//·½·¨ÖØÐ´
+	public void eat() {
+		System.out.println("Students need to eat healthy.");
+	}
 }
