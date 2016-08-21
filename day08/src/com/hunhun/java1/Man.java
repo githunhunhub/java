@@ -28,5 +28,8 @@ public class Man extends Person{
 		System.out.println("Man Eating");
 	}
 	
+	public void manWay() {
+		System.out.println("Man's way.");
+	}
 	
 }

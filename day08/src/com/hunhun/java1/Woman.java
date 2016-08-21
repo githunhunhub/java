@@ -27,4 +27,8 @@ public class Woman extends Person{
 	public void eat() {
 		System.out.println("Woman Eating");
 	}
+	
+	public void womanWay() {
+		System.out.println("Woman's way.");
+	}
 }
