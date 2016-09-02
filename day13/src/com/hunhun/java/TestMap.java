@@ -127,8 +127,8 @@ public class TestMap {
 		Set set2 = map.entrySet();
 		for (Object obj : set2) {
 			Map.Entry entry = (Map.Entry) obj;// 进行强转
-//			System.out.println(entry.getKey() + " ---> " + entry.getValue());
-			System.out.println(entry);
+			System.out.println(entry.getKey() + " ---> " + entry.getValue());
+//			System.out.println(entry);
 		}
 	}
 
