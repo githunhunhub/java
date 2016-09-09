@@ -1,4 +1,4 @@
-package com.hunhun.java;
+package com.hunhun.java1;
 //ËÀËø
 public class TestDeadLock {
 	

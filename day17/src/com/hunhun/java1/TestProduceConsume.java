@@ -1,4 +1,4 @@
-package com.hunhun.java;
+package com.hunhun.java1;
 
 /*
  * 生产者-销售者-消费者，程序实现
