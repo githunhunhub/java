@@ -1,0 +1,25 @@
+
+1.向 examstudent数据库输入记录
+
+2.创建void addStudent（Student student）方法
+addStudent(){
+	String sql = "insert into examstudent "+
+				"values("student.getFlow()"
+				+ "," + "student.getType()"
+				+	......
+				)";
+}
+
+3.新建Student对应数据库各个列对象
+class student{
+
+	int Flow
+	
+	int type
+	
+	String icCard
+	
+	...
+	
+	
+	}

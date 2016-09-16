@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>demo-1</title>
+    <script>
+        //获取指定元素节点   
+        window.onload = function(){
+            //1.获取id为 bj 的节点
+            // id要保证唯一
+            var bjNode = document.getElementById("bj");
+            alert(bjNode);
+
+            //2.
+            var liNodes = document.getElementsByTagName("li");
+            alert(liNodes.length);
+
+            var cityNode = document.getElementById("city");
+            var cityLiNodes = cityNode.getElementsByTagName("li");
+            alert(cityLiNodes.length);
+
+            //3.
+            var genderNodes = document.getElementsByName("gender");
+            alert(genderNodes.length);
+        
+        }
+    </script>
+</head>
+
+<body>
+    <p>选择城市</p>
+    <ul id="city">
+        <li id="bj" name="BeiJing">北京</li>
+        <li>上海</li>
+        <li>东京</li>
+        <li>首尔</li>
+    </ul>
+
+    <p>选择游戏</p>
+    <ul id="game">
+        <li id="rl">红警</li>
+        <li>实况</li>
+        <li>汽车</li>
+        <li>魔兽</li>
+    </ul>
+    <br><br>
+    gender:
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="Female">Female
+</body>
+
+</html>
