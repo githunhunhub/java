@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>day38</display-name>
+  <context-param>
+    <param-name>password</param-name>
+    <param-value>123456</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>encoding</param-name>
+  	<param-value>UTF-8</param-value>
+  </context-param>
+  
+  <!-- 用户信息放到session关键字中 -->
+  <context-param>
+  	<param-name>userSessionKey</param-name>
+  	<param-value>USERSESSIONKEY</param-value>
+  </context-param>
+  <!-- 未登陆，重定向页面 -->
+  <context-param>
+  	<param-name>redirectUrl</param-name>
+  	<param-value>/login/login.jsp</param-value>
+  </context-param>
+  <!-- 不需要检查(拦截)的URL列表 -->
+  <context-param>
+  	<param-name>uncheckedUrls</param-name>
+  	<param-value>/login/a.jsp,/login/list.jsp,/login/dologin.jsp,/login/login.jsp</param-value>
+  </context-param>
+  
+  <filter>
+    <filter-name>helloFilter</filter-name>
+    <filter-class>com.hunhun.javaweb.HelloFilter</filter-class>
+    <init-param>
+      <param-name>name</param-name>
+      <param-value>admin</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>helloFilter</filter-name>
+    <url-pattern>/test.jsp</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>secondFilter</filter-name>
+    <filter-class>com.hunhun.javaweb.SecondFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>secondFilter</filter-name>
+    <url-pattern>/test.jsp</url-pattern>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+  </filter-mapping>
+  <filter>
+    <display-name>UsernameFilter</display-name>
+    <filter-name>UsernameFilter</filter-name>
+    <filter-class>com.hunhun.javaweb.UsernameFilter</filter-class>
+    <init-param>
+      <param-name>username</param-name>
+      <param-value>Tomm</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>UsernameFilter</filter-name>
+    <url-pattern>/hello.jsp</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>PasswordFilter</display-name>
+    <filter-name>PasswordFilter</filter-name>
+    <filter-class>com.hunhun.javaweb.PasswordFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>PasswordFilter</filter-name>
+    <url-pattern>/hello.jsp</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>NoCacheFilter</display-name>
+    <filter-name>NoCacheFilter</filter-name>
+    <filter-class>com.hunhun.javaweb.cache.NoCacheFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>NoCacheFilter</filter-name>
+    <url-pattern>/cache/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>encoding</filter-name>
+  	<filter-class>com.hunhun.javaweb.encoding.EncodingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>encoding</filter-name>
+  	<url-pattern>/encoding/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>loginFilter</filter-name>
+  	<filter-class>com.hunhun.javaweb.login.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>loginFilter</filter-name>
+  	<url-pattern>/login/*</url-pattern>
+  </filter-mapping>
+</web-app>

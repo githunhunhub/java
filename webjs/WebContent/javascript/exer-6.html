@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<script type="text/javascript">
+	
+	window.onload = function(){
+		
+		document.getElementById("province").onchange = function(){
+			
+			var cityNode = document.getElementById("city");
+			var cityNodeOptions = cityNode.getElementsByTagName("option");
+			
+			var len = cityNodeOptions.length;
+			for (var int = 0; int < len; int++) {
+				cityNode.removeChild(cityNodeOptions[1]);
+			}
+			var provinceVal = this.value;
+			if(provinceVal == ""){
+				return;
+			}
+			
+			var xmlDoc = parseXml("cities.xml");
+			
+			var proivnceEles = xmlDoc.selectNodes
+				("//province[@name='"+provinceVal +"']");
+			
+			var cityNodes = provinceEles[0].getElementsByTagName("city");
+			
+			for(var i=0; i<cityNodes.length; i++){
+				
+				var cityText = cityNode[i].firstChild.nodeValue;
+				var cityTextNode = document.createTextNode(cityText);
+				var optionNode = document.createElement("option");
+				optionNode.appendChild(cityTextNode);
+				
+				cityNode.appendChild(optionNode);
+			}
+		}
+		
+		function parseXml(fileName){
+			if(window.ActiveXObject){
+				var doc = new ActiveXobject("Microsoft.XMLDOM");
+				doc.async = "false";
+				doc.load(fileName);
+				return doc;
+			}
+		}
+}
+
+</script>
+</head>
+<body>
+	<center>
+	<br><br><br>
+	
+	<select id="province">
+		<option value="">请选择...</option>
+		<option value="hb">河北省</option>
+		<option value="ln">辽宁省</option>
+		<option value="sd">山东省</option>
+	</select>
+
+
+	<select id="city"><option value="...">请选择...</option></select>
+	
+	</center>
+</body>
+</html>

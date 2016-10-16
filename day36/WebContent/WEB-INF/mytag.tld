@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    
+  <description>MyTag 1.0 core library</description>
+  <display-name>MyTag core</display-name>
+  <tlib-version>1.0</tlib-version>
+  
+  <!-- 建议在jsp页面使用的标签前缀，也可以不写 -->
+  <short-name>hun</short-name>
+  <!-- 作为tld文件的ID，当作唯一标识，不可重复 -->
+  <uri>http://www.hunhun.com/mytag/core</uri>
+  
+  <!-- 描述自定义的HelloSimpleTag标签 -->
+  <tag>
+  	<name>hello</name>
+  	<tag-class>com.hunhun.javaweb.tag.HelloSimpleTag</tag-class>
+  	<body-content>empty</body-content>
+  	
+  	<!-- 设置标签属性 -->
+  	<attribute>
+  		<name>value</name>
+  		<required>true</required>
+  		<!-- runtime expression valued的缩写 ，是否允许运行时传入值，即表达式-->
+  		
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	
+  	<attribute>
+  		<name>count</name>
+  		<required>false</required>
+  		<rtexprvalue>false</rtexprvalue>
+  	</attribute>
+  </tag>
+  
+  <tag>
+  	<name>Max</name>
+  	<tag-class>com.hunhun.javaweb.tag.MaxTag</tag-class>
+  	<body-content>empty</body-content>
+  	<attribute>
+  		<name>num1</name>
+  		<required>true</required>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  	<attribute>
+  		<name>num2</name>
+  		<required>true</required>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  </tag>
+  
+  <tag>
+  	<name>readFile</name>
+  	<tag-class>com.hunhun.javaweb.tag.ReadFileTag</tag-class>
+  	<body-content>empty</body-content>
+  	<attribute>
+  		<name>src</name>
+  		<required>true</required>
+  	</attribute>
+  </tag>
+  
+</taglib>

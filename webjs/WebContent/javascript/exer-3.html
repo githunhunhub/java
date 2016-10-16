@@ -5,8 +5,70 @@
     <title>Document</title>
     <script>
         window.onload = function(){
+            //点击submit时，检查是否选择type，没有就给出提示
 
+            function showContent(liNode){
+                alert("@@@" + liNode.firstChild.nodeValue);
+            }
+           
+           var liNodes = document.getElementsByTagName("li");
+           for(var i= 0; i<liNodes.length; i++){
+               liNodes[i].onclick = function(){
+                   showContent(this);
+               }
+           }
+
+           //1.
+           var submit = document.getElementById("submit");
+           
+           //2.
+           submit.onclick = function(){
+               
+               var types = document.getElementsByName("type");
+
+               var typeVal = null;
+               for(var i= 0; i<types.length; i++){
+                   if(types[i].checked){    //检查是否存在checked子节点
+                       typeVal = types[i].value;
+                       break;
+                   }
+               }
+               //4.3若没有选中type，弹出“选择type”
+               if(typeVal==null){
+                   alert("choose type!");
+                   return false;
+               }
+               //获取name = “name”的文本值
+               var nameEle = document.getElementsByName("name")[0];
+               var nameVal = nameEle.value;
+
+               //6.
+               var reg = /^\s*|\s*$/g;
+               nameVal = nameVal.replace(reg, "");
+
+               nameEle.value = nameVal;
+
+               if(nameVal == ""){
+                   alert("input somenthing!");
+                   return false;
+               }
+
+               var liNode = document.createElement("li");
+               
+               var content = document.createTextNode(nameVal);
+
+               liNode.appendChild(content);
+
+               liNode.onclick = function(){
+                   showContent(this);
+               }
+
+               document.getElementById(typeVal).appendChild(liNode);
+
+               return false;
+           }
         }
+        
     </script>
 </head>
 <body>
@@ -25,11 +87,12 @@
         <li>汽车</li>
         <li>魔兽</li>
     </ul>
-    <form action="exer-3.html" name="myform">
+    <form action="demo-7.html" name="myform">
         <input type="radio" name="type" value="city">City
         <input type="radio" name="type" value="game">Game
-        <br>
-        name: <input type="text" name="name">
+
+
+        name: <input type="text" name="name"/>
 
         <input type="submit" value="submit" id="submit"/>
 

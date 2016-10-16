@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>day_29</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 配置当前 WEB 应用的初始化参数 ,全局参数-->
+  <context-param>
+  		<param-name>driver</param-name>
+  		<param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  
+  <context-param>
+  		<param-name>jdbcUrl</param-name>
+  		<param-value>jdbc:mysql:///hunhun</param-value>
+  </context-param>
+  
+  
+  <!-- 配置和映射Servlet，特定Servlet参数,servlet中的init()方法中，利用servletConfig相应方法获取 -->
+  <servlet>
+  		<!-- Servlet注册name-->
+	  	<servlet-name>helloServlet</servlet-name>
+	  	<!-- Servlet全类名 -->
+	  	<servlet-class>com.hunhun.javaweb.HelloServlet</servlet-class>
+	  	
+	  	<!-- 配置Servlet初始化参数 -->
+	  	<init-param>
+	  		<!--参数名  -->
+	  		<param-name>user</param-name>
+	  		<!--参数值  -->
+	  		<param-value>root</param-value>
+	  	</init-param>
+	  	
+	  	<init-param>
+			<param-name>password</param-name>
+			<param-value>1230</param-value>
+	  	</init-param>
+	  	
+  </servlet>
+  
+  
+  <servlet-mapping>
+  		<!-- 需要和上面注册名一致 -->
+  		<servlet-name>helloServlet</servlet-name>
+  		<!-- / 代表当前web应用根目录 -->
+  		<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>loginServlet</servlet-name>
+  		<servlet-class>com.hunhun.javaweb.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  		<servlet-name>loginServlet</servlet-name>
+  		<url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery-3.1.0.js"></script>
+<script type="text/javascript">
+	
+	$(function(){
+		$("button").click(function(){
+			//alert("hello, world!");
+			
+			// jquery ---> DOM
+			//var $btn = $("button");
+			//alert($btn.length);
+			
+			//alert($btn[1].firstChild.nodeValue)
+			
+			//DOM -----> jquery
+			//alert(this.firstChild.nodevalue);
+			alert($(this).text());
+			
+		});
+	})
+	
+</script>
+</head>
+<body>
+
+	<button>Click Me</button>
+	<button>Click Me2</button>
+
+</body>
+</html>

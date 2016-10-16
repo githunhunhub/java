@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	var jsonObject = {
+			"name":"hunhun",
+			"age":12,
+			"address":{"city":"ChengDu", "schoool":"123"},
+			"teach":function(){
+				alert("teaching");
+			}
+	};
+	//alert(jsonObject.name);
+	//alert(jsonObject.address.city);
+	//jsonObject.teach();
+	
+	var jsonStr = "{'name':'hunhun001'}";
+	//even()可以把字符串转化为语句
+	var tO = eval("("+ jsonStr + ")");
+	alert(tO.name);
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

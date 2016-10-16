@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script type="text/javascript">
+
+	window.onload = function(){
+		
+		var cityNode = document.getElementById("city");
+		var bjNode = document.getElementById("bj");
+		var rlNode = document.getElementById("rl");
+		
+		//cityNode.insertBefore(rlNode, bjNode);
+		var refNode = document.getElementById("dj");
+		insertAfter(rlNode, refNode);
+	}
+		//在某节点最后后插入节点
+		function insertAfter(newNode, refNode) {
+			
+			var parentNode = refNode.parentNode;
+			if (parentNode) {
+				var lastNode = parentNode.lastChild;
+				
+				if(refNode == lastNode){
+					parentNode.appendChild(newNode);
+				}else{
+					var nextNode = refNode.nextSibling;	//下一个同级节点
+					parentNode.insertBefore(newNode, nextNode);
+				}
+			}
+		}
+	
+	
+</script>
+</head>
+<body>
+	<p>选择城市</p>
+
+	<ul id="city">
+		<li id="bj" name="BeiJing">北京</li>
+		<li>上海</li>
+		<li id="dj">东京</li>
+		<li id="se">首尔</li>
+	</ul>
+
+	<p>选择游戏</p>
+	<ul id="game">
+		<li id="rl">红警</li>
+		<li>超级玛丽</li>
+		<li>赛车</li>
+		<li>魔兽</li>
+	</ul>
+	<br>
+	<br> grender:
+	<input type="radio" name="m">Male
+	<input type="radio" name="m">Female
+	<br>
+	<br> name:
+	<input type="text" name="gender" value="hunhun" id="name">
+</body>
+</html>

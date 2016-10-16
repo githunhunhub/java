@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script type="text/javascript">
+
+window.onload = function(){
+	var cityNode = document.getElementById("city");
+	alert(cityNode.innerHTML);
+	
+	var tempHTML = cityNode.innerHTML;
+	var gameNode = document.getElementById("game");
+	
+	cityNode.innerHTML = gameNode.innerHTML;
+	gameNode.innerHTML = tempHTML;
+	
+}
+	
+	
+</script>
+</head>
+<body>
+	<p>选择城市</p>
+
+	<ul id="city">
+		<li id="bj" name="BeiJing">北京</li>
+		<li>上海</li>
+		<li id="dj">东京</li>
+		<li id="se">首尔</li>
+	</ul>
+
+	<p>选择游戏</p>
+	<ul id="game">
+		<li id="rl">红警</li>
+		<li>超级玛丽</li>
+		<li>赛车</li>
+		<li>魔兽</li>
+	</ul>
+	<br>
+	<br> grender:
+	<input type="radio" name="m">Male
+	<input type="radio" name="m">Female
+	<br>
+	<br> name:
+	<input type="text" name="gender" value="hunhun" id="name">
+</body>
+</html>
